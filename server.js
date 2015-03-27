@@ -28,6 +28,7 @@ var User = PostGre.Model.extend({
 //app.use(myCustomStack);//for all
 app.use(loger('dev'));
 
+//npm install body-parser - для парсинга урл в роуті
 app.use(bodyParser.json({strict: false, limit: 1024*1024*200}));
 app.use(bodyParser.urlencoded({extended: false}));
 
