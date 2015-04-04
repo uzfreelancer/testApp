@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var path = require('path');
 var loger = require('morgan');
 var bodyParser = require('body-parser');
 
@@ -11,7 +12,7 @@ db.on('error', function(){console.log('connection error:')});
 db.once('open', function callback() {
     console.log("Connection to mainDB is success");
     //require('./config/dev.js');
-
+    app.use(express.static(path.join(__dirname, 'public')));    //set public
     //app.use(CookieParser);
     app.use(loger('dev'));
     app.use(bodyParser.json({strict: false, limit: 1024*1024}));
